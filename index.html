@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion/Inscription</title>
-    <script src="/javascript/event.js" defer></script>
+    <script src="/ressources/javascript/event.js" defer></script>
 </head>
 
 <body>
     <div id="divConnexion">
         <form action="" method="post">
             <label for="username">Saisissez votre nom d'utilisateur</label>
-            <input type="text" name="username" id="username" placeholder="Votre nom d'utilisateur" />
+            <input type="text" name="username" id="username" placeholder="Votre nom d'utilisateur" required/>
 
             <label for="password">Saisissez votre mot de passe</label>
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe" />
+            <input type="password" name="password" id="password" placeholder="Votre mot de passe" required/>
 
             <button type="submit">Se connecter</button>
             <p id="ShownInscription">Pas encore de compte? S'inscrire</p>
@@ -24,19 +24,19 @@
     <div id="divInscription">
         <form action="" method="post">
             <label for="username">Saisissez votre nom d'utilisateur</label>
-            <input type="text" name="username" id="username" placeholder="Votre nom d'utilisateur" />
+            <input type="text" name="username" id="username" placeholder="Votre nom d'utilisateur" required/>
 
             <label for="password">Saisissez votre mot de passe</label>
-            <input type="text" name="username" id="username" placeholder="Votre identifiant" />
+            <input type="password" name="password" id="password" placeholder="Votre mot de passe" required/>
 
             <label for="passwordConfirm">Confirmez votre mot de passe</label>
-            <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Votre mot de passe" />
+            <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Votre mot de passe" required/>
 
             <label for="mail">Saisissez votre mail</label>
-            <input type="email" name="email" id="mail">
+            <input type="email" name="email" id="mail"required />
 
             <label for="newsletter">Voulez-vous vous abonner à notre newsletter?</label>
-            <input type="checkbox" name="newsletter" id="newsletter" />
+            <input type="checkbox" name="newsletter" id="newsletter" required/>
 
             <button type="submit">S'inscrire</button>
             <button type="reset">Effacer</button>
