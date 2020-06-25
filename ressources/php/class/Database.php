@@ -15,7 +15,8 @@ class Database
         $this->db_name = $db_name;
     }
      
-    private function setPDO(){
+    private function setPDO()
+    {
         try {
             $pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name .';charset=utf8', $this->login, $this->password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -30,8 +31,10 @@ class Database
     {
         $request = $this->setPDO()->prepare($request);
         $request->execute($values);
-        if ($type === 'select') {
+        if ($type === 'fetchAll') {
             return $request->fetchAll(PDO::FETCH_OBJ);
+        } elseif ($type === 'fetch') {
+            return $request->fetch();
         } else {
             return $request;
         }
