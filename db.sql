@@ -11,6 +11,26 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+
+-- Listage de la structure de la base pour projectix
+CREATE DATABASE IF NOT EXISTS `projectix` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `projectix`;
+
+-- Listage de la structure de la table projectix. users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `password` text COLLATE utf8_unicode_ci NOT NULL,
+  `mail` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `creationDate` datetime NOT NULL,
+  `profilImage` text COLLATE utf8_unicode_ci,
+  `token` text COLLATE utf8_unicode_ci,
+  `newsletter` text COLLATE utf8_unicode_ci,
+  `newMail` text COLLATE utf8_unicode_ci,
+  `newToken` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='List of users';
+
 -- Listage des données de la table projectix.users : ~2 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `userName`, `password`, `mail`, `creationDate`, `profilImage`, `token`, `newsletter`, `newMail`, `newToken`) VALUES
