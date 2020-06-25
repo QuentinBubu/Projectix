@@ -2,9 +2,11 @@
 
 require_once('Database.php');
 
-class User extends Database{
+class User extends Database
+{
 
-    private function setNewAccount($userName, $password, $passwordConfirm, $mail, $newsletter){
+    private function setNewAccount($userName, $password, $passwordConfirm, $mail, $newsletter)
+    {
         $accountNumber = 
         $this->request(
             'SELECT *
@@ -15,7 +17,7 @@ class User extends Database{
                 'userName' => $userName,
                 'mail' => $mail
             ],
-            'select'
+            'fetchAll'
         );
         if (
             count($accountNumber) != 0
@@ -91,8 +93,37 @@ class User extends Database{
 
     }
 
-    public function getNewAccount($userName, $password, $passwordConfirm, $mail, $newsletter){
+    private function setConnexion($userName, $password)
+    {
+        $request = $this->request(
+           'SELECT *
+           FROM `users`
+           WHERE `userName` = :userName
+           OR `mail` = :userName',
+        [
+            'userName' => $userName
+        ],
+        'fetch');
+
+        if (!$request) {
+            return 'Compte introuvable';
+        } elseif (!password_verify($password, $request['password'])) {
+            return 'Mot de passe incorrect';
+        } elseif ($request['token'] != 'true') {
+            return 'Validez d\'abord votre compte!';
+        } else {
+            return 'Connexion réussite!';
+        }
+    }
+
+    public function getNewAccount($userName, $password, $passwordConfirm, $mail, $newsletter)
+    {
         return $this->setNewAccount($userName, $password, $passwordConfirm, $mail, $newsletter);
+    }
+
+    public function getConnexion($userName, $password)
+    {
+        return $this->setConnexion($userName, $password);
     }
 
 }
