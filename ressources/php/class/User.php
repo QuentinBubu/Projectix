@@ -1,9 +1,16 @@
 <?php
 
+session_start();
+
 require_once('Database.php');
 
 class User extends Database
 {
+
+    public $accountType;
+    public $userName;
+    public  $id;
+    private $globalAccountInformation;
 
     private function setNewAccount($userName, $password, $passwordConfirm, $mail, $newsletter)
     {
@@ -54,7 +61,7 @@ class User extends Database
                     `creationDate`,
                     `profilImage`,
                     `token`,
-                    `newsletter`
+                    `newsletter`,
                 ) VALUES
                 (
                     :userName,
@@ -112,6 +119,9 @@ class User extends Database
         } elseif ($request['token'] != 'true') {
             return 'Validez d\'abord votre compte!';
         } else {
+            $this->globalAccountInformation = $request;
+            $this->accountType = $request['accountType'];
+            $_SESSION['id'] = $request['id'];
             return 'Connexion réussite!';
         }
     }
