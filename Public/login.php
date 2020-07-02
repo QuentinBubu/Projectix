@@ -27,7 +27,7 @@ if (isset($_SESSION['error'])) {
         connecter</label>
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">S'inscrire</label>
       <div class="login-form">
-        <form class="sign-in-htm" action="/login-back" method="POST">
+        <form class="sign-in-htm" action="<?= $routeur->generate('login-back'); ?>" method="POST">
           <div class="group">
             <label for="user" class="label">Pseudonyme</label>
             <input id="username" name="username" type="text" class="input" required>
@@ -48,7 +48,7 @@ if (isset($_SESSION['error'])) {
             <a href="#forgot">Mot de passe oublié</a>
           </div>
         </form>
-        <form class="sign-up-htm" action="/signup-back" method="POST">
+        <form class="sign-up-htm" action="<?= $routeur->generate('signup-back'); ?>" method="POST">
           <div class="group">
             <label for="user" class="label">Pseudonyme</label>
             <input id="username" name="username" type="text" class="input" required>

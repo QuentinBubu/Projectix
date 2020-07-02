@@ -7,8 +7,8 @@ $routeur->map('GET', '/', 'hello');
 $routeur->map('GET', '/hello', 'hello');
 $routeur->map('GET', '/home', 'home');
 $routeur->map('GET', '/login', 'login');
-$routeur->map('POST', '/login-back', '../App/php/LoginSignup/login');
-$routeur->map('POST', '/signup-back', '../App/php/LoginSignup/signup');
+$routeur->map('POST', '/login-back', '../App/php/LoginSignup/login', 'login-back');
+$routeur->map('POST', '/signup-back', '../App/php/LoginSignup/signup', 'signup-back');
 
 $results = $routeur->match();
 
