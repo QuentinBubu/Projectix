@@ -1,0 +1,11 @@
+{
+    "name": "quentin/projectix",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/php/class/"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
+}

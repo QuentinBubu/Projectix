@@ -25,19 +25,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `creationDate` datetime NOT NULL,
   `profilImage` text COLLATE utf8_unicode_ci,
   `token` text COLLATE utf8_unicode_ci,
-  `newsletter` text COLLATE utf8_unicode_ci,
+  `newsletter` char(50) COLLATE utf8_unicode_ci DEFAULT '0',
   `newMail` text COLLATE utf8_unicode_ci,
   `newToken` text COLLATE utf8_unicode_ci,
   `accountType` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='List of users';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='List of users';
 
--- Listage des données de la table projectix.users : ~2 rows (environ)
+-- Listage des données de la table projectix.users : ~3 rows (environ)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `userName`, `password`, `mail`, `creationDate`, `profilImage`, `token`, `newsletter`, `newMail`, `newToken`, `accountType`) VALUES
-	(1, 'Teste', '$argon2id$v=19$m=65536,t=4,p=1$a3JxaXlEdjgxZm50QlVOVg$B+4pPK9N+MRze4rzsKiqqVr2rR4QpASdqFuuDfGGzqA', 'test@gmail.com', '2020-06-25 14:08:44', '/ressources/pictures/default/profil.svg', 'M1e17ad8d3db60f4bce6aa1b555f700c3afeee06d', 'on', NULL, NULL, 'Member'),
-	(4, 'Anagames', '$argon2id$v=19$m=65536,t=4,p=1$VlJpSjJYOHJOWEZTYzlyMg$HJ0i7U2yIrGP/zHDbcAWfA4V+b8xsxWekLeSWjXKW00', 'anagamesprint@gmail.com', '2020-06-25 17:06:46', '/ressources/pictures/default/profil.svg', 'true', 'on', NULL, NULL, 'Member');
+	(1, 'Teste', '$argon2id$v=19$m=65536,t=4,p=1$a3JxaXlEdjgxZm50QlVOVg$B+4pPK9N+MRze4rzsKiqqVr2rR4QpASdqFuuDfGGzqA', 'test@gmail.com', '2020-06-25 14:08:44', '/ressources/pictures/default/profil.svg', 'M1e17ad8d3db60f4bce6aa1b555f700c3afeee06d', 'on', NULL, NULL, 'Member');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

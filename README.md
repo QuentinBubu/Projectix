@@ -1,1 +1,3 @@
 # Projectix
+
+#### Document root: Public
